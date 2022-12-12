@@ -21,6 +21,10 @@ const courseSchema = new mongoose.Schema({
     },
     credit:{
         type :Number
+    },
+    format:{
+        type:String,
+        maxleght:10
     }
 }
 )

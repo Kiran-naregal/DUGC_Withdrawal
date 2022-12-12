@@ -4,8 +4,8 @@ import bigPromise from "../middlewares/bigPromise.js"
 
 export const createCourse = bigPromise(async(req,res,next)=>{
 
-    const {name,code ,sem, credit}=req.body;
-    if((!name) || (!code) || (!sem) || (!credit)){
+    const {name,code ,sem, credit, format}=req.body;
+    if((!name) || (!code) || (!sem) || (!credit) || (!format)){
         return res.status(400).json({
             success:false,
             message:"All fields are required!"
@@ -16,7 +16,8 @@ export const createCourse = bigPromise(async(req,res,next)=>{
             name,
             code,
             sem,
-            credit
+            credit,
+            format
         })
     
         if(!course){
@@ -55,7 +56,25 @@ export const findCourse = bigPromise(async(req,res,next)=>{
     })
 })
 
+export const deleteCourse = bigPromise(async(req,res,next)=>{
+    const {id} =req.query
 
+    console.log(id)
+    const rvalue = Course.findByIdAndDelete({_id : id}).catch(err=>{
+        console.log('error finding course by ID')
+        return null
+    })
+
+    if(!rvalue){
+        return res.status(300).json({
+            message:"error finding course ny id"
+        })
+    }
+    return res.status(201).json({
+        success:true,
+        message:"course delete Successfully !"
+    })
+})
 
 
 

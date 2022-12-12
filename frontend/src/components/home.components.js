@@ -27,28 +27,32 @@ export default class Home extends Component{
                 code: '',
                 credit: 0,
                 attendence: 0,
-                ISA_marks: 0
+                ISA_marks: 0,
+                format:''
             },
             course_2: {
                 course: '',
                 code: '',
                 credit: 0,
                 attendence: 0,
-                ISA_marks: 0
+                ISA_marks: 0,
+                format:''
             },
             course_3: {
                 course: '',
                 code: '',
                 credit: 0,
                 attendence: 0,
-                ISA_marks: 0
+                ISA_marks: 0,
+                format:''
             },
             course_4: {
                 course: '',
                 code: '',
                 credit: 0,
                 attendence: 0,
-                ISA_marks: 0
+                ISA_marks: 0,
+                format:''
             },
             courseSelected: [],
             checkbox1: false,
@@ -91,7 +95,7 @@ export default class Home extends Component{
         axios.get(`http://localhost:1999/api/course?&sem=${e.target.value}`)
         .then((res) => {
             this.setState({course: res.data.data})
-            // console.log(res.data.data)
+            console.log(res.data.data)
         })
         .catch(err => console.log(err))
     }
@@ -103,10 +107,12 @@ export default class Home extends Component{
             if(this.state.course[i].name === e.target.value){
                 course_1.code = this.state.course[i].code;
                 course_1.credit = this.state.course[i].credit;
+                course_1.format = this.state.course[i].format
                 break;
             }
         }
         this.setState({course_1});
+        // console.log(this.state.course_1);
     }
 
     onChangeCourse_1Attendence = (e) =>{
@@ -132,6 +138,7 @@ export default class Home extends Component{
             if(this.state.course[i].name === e.target.value){
                 course_2.code = this.state.course[i].code;
                 course_2.credit = this.state.course[i].credit;
+                course_2.format = this.state.course[i].format
                 break;
             }
         }
@@ -161,6 +168,7 @@ export default class Home extends Component{
             if(this.state.course[i].name === e.target.value){
                 course_3.code = this.state.course[i].code;
                 course_3.credit = this.state.course[i].credit;
+                course_3.format = this.state.course[i].format
                 break;
             }
         }
@@ -190,6 +198,7 @@ export default class Home extends Component{
             if(this.state.course[i].name === e.target.value){
                 course_4.code = this.state.course[i].code;
                 course_4.credit = this.state.course[i].credit;
+                course_4.format = this.state.course[i].format
                 break;
             }
         }
@@ -324,7 +333,7 @@ export default class Home extends Component{
                                         <input type={"text"} value={this.state.course_1.code} readOnly required className="form-control" placeholder="Select course"></input>
                                     </td>
                                     <td>
-                                        <input type={"number"} value={this.state.course_1.credit} readOnly required className="form-control" placeholder="0"></input>
+                                        <input type={"text"} value={this.state.course_1.format} readOnly required className="form-control" placeholder="0"></input>
                                     </td>
                                     <td>
                                         <input type={"number"} value={this.state.course_1.attendence} onChange={this.onChangeCourse_1Attendence} className="form-control" required placeholder="0"></input>
@@ -347,7 +356,7 @@ export default class Home extends Component{
                                         <input type={"text"} value={this.state.course_2.code} readOnly className="form-control" placeholder="Select course"></input>
                                     </td>
                                     <td>
-                                        <input type={"number"} value={this.state.course_2.credit} readOnly className="form-control" placeholder="0"></input>
+                                        <input type={"text"} value={this.state.course_2.format} readOnly className="form-control" placeholder="0"></input>
                                     </td>
                                     <td>
                                         <input type={"number"} value={this.state.course_2.attendence} onChange={this.onChangeCourse_2Attendence} className="form-control" placeholder="0"></input>
@@ -370,7 +379,7 @@ export default class Home extends Component{
                                         <input type={"text"} value={this.state.course_3.code} readOnly className="form-control" placeholder="Select course"></input>
                                     </td>
                                     <td>
-                                        <input type={"number"} value={this.state.course_3.credit} readOnly className="form-control" placeholder="0"></input>
+                                        <input type={"text"} value={this.state.course_3.format} readOnly className="form-control" placeholder="0"></input>
                                     </td>
                                     <td>
                                         <input type={"number"} value={this.state.course_3.attendence} onChange={this.onChangeCourse_3Attendence} className="form-control" placeholder="0"></input>
@@ -393,7 +402,7 @@ export default class Home extends Component{
                                         <input type={"text"} value={this.state.course_4.code} readOnly className="form-control" placeholder="Select course"></input>
                                     </td>
                                     <td>
-                                        <input type={"number"} value={this.state.course_4.credit} readOnly className="form-control" placeholder="0"></input>
+                                        <input type={"text"} value={this.state.course_4.format} readOnly className="form-control" placeholder="0"></input>
                                     </td>
                                     <td>
                                         <input type={"number"} value={this.state.course_4.attendence} onChange={this.onChangeCourse_4Attendence} className="form-control" placeholder="0"></input>

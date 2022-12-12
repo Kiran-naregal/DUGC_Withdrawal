@@ -10,6 +10,8 @@ import Navbar from "./components/navbar.components";
 import Home from "./components/home.components";  
 import Approve from './components/approval.components';
 import Display from './components/printApproved.component';
+import CourseList from'./components/course.components';
+import CourseForm from './components/courseForm.components';
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
           <Route path="/" exact element = {<Home/>} />
           <Route path='/update' exact element={<Approve />}/>
           <Route path='/Print' exact element={<Display />} />
+          <Route path='/list' exact element={<CourseList />} />
+          <Route path='/courseForm' exact element={<CourseForm />} />
         </Routes>
       </div>
     </Router>

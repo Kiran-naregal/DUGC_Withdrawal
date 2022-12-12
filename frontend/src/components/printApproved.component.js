@@ -8,7 +8,8 @@ export default class Display extends Component {
         this.state = ({
             semOptions: 0,
             approvedStudents: [],
-            course: []
+            course: [],
+            sem: [3,4,5,6,7,8]
         });
     }
 
@@ -42,9 +43,13 @@ export default class Display extends Component {
         return (
 
             <div>
+                <br></br>
                 <div className="form-group">
                     <label>Sem</label>
-                    <input type={"number"} value={this.state.semOptions} required className="form-control" onChange={this.onChangeSemOptions} placeholder="Sem" min={3} max={8}></input>
+                    <select type={"number"} value={this.state.semOptions} required className="form-control" onChange={this.onChangeSemOptions} placeholder="Sem" min={3} max={8}>
+                        <option>Select sem</option>
+                        {this.state.sem.map(function(x){return <option key={x}>{x}</option>})}
+                    </select>
             </div>
 
             <div ref={el => (this.componentRef = el)}>
