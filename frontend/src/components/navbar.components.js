@@ -39,6 +39,15 @@ export default class Navbar extends Component{
                         {/* <img style={{height:40,marginleft:60}} src={require('../kle.png')}></img> */}
                         <Link to='/list' className="nav-link text-dark">Course list</Link>
                         </li>
+                        <li>
+                            <Link to='/makeForm' className="nav-link text-dark">MakeUp Form</Link>
+                        </li>
+                        <li>
+                            <Link to='/makeApporval' className="nav-link text-dark">MakeUp Approval</Link>
+                        </li>
+                        <li>
+                            <Link to='/makePrint' className="nav-link text-dark">MakeUp Print</Link>
+                        </li>
                     </ul> 
                 </div> 
             </nav> 

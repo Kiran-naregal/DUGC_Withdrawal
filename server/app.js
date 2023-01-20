@@ -25,12 +25,13 @@ app.use(express.urlencoded({extended:true}))
 // import all routes here
 import userRoutes from "./routes/userRoutes.js"
 import courseRoutes from "./routes/courseRoutes.js"
+import makeUpRoute from "./routes/makeUpRoutes.js"
 
 
 // router middleware
 app.use("/api/user",userRoutes);
 app.use("/api/course",courseRoutes);
-
+app.use("/api/makeUpMinor",makeUpRoute)
 
 
 export default app;

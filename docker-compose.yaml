@@ -1,0 +1,12 @@
+version: '2.15'
+services:
+  react_app:
+    build: ./frontend
+    container_name: react_app_c
+    ports:
+      - 3000
+    volumes:
+      - ./frontend:/react_app
+      - react_app/node_modules
+    stdin_open: true
+    tty: true

@@ -12,6 +12,9 @@ import Approve from './components/approval.components';
 import Display from './components/printApproved.component';
 import CourseList from'./components/course.components';
 import CourseForm from './components/courseForm.components';
+import MakeUPForm from './components/makeUpForm.component';
+import MakeApproval from './components/makeUpApproval.component';
+import MakePrint from './components/makePrint.component';
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
           <Route path='/Print' exact element={<Display />} />
           <Route path='/list' exact element={<CourseList />} />
           <Route path='/courseForm' exact element={<CourseForm />} />
+          <Route path='/makeForm' exact element={<MakeUPForm />} />
+          <Route path='/makeApporval' exact element={<MakeApproval />} />
+          <Route path='/makePrint' exact element={<MakePrint />} />
         </Routes>
       </div>
     </Router>
