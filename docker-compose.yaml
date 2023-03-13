@@ -2,11 +2,13 @@ version: '2.15'
 services:
   react_app:
     build: ./frontend
-    container_name: react_app_c
+    container_name: DUGC_withdraw
     ports:
-      - 3000
-    volumes:
-      - ./frontend:/react_app
-      - react_app/node_modules
+      - 3000:3000
     stdin_open: true
     tty: true
+  server:
+    build: ./server
+    container_name: DUGC_server
+    ports: 
+      - 1999:1999
